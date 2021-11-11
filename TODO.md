@@ -34,3 +34,8 @@
    1. TokenObtainPairView
    2. TokenRefreshView
 3. Crear la vista para verificar el token
+
+
+### Cambio del Engine de la base de datos
+1. Instalar el paquete `$ pip install psycopg2`
+2. Cambiar la configuración del settings de la base de datos
