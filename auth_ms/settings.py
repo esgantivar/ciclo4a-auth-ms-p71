@@ -25,7 +25,7 @@ SECRET_KEY = 'up5aw4h3r5x%3*@u@#xx_0l^naptk9gyb2b6@oi2#*f4kqj!1j'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['mision-tic-ciclo4a-g71.herokuapp.com']
 
 
 # Application definition
@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'auth_ms.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd2d38vh6thgg68',
+        'HOST': 'ec2-34-224-239-147.compute-1.amazonaws.com',
+        'PORT': 5432,
+        'USER': 'xwkrvwwyyraara',
+        'PASSWORD': '6fd01741371ab47ec43c9082efc69c7750d174e3e28e9b67956b452814e958a7'
     }
 }
 
