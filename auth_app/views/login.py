@@ -1,9 +1,10 @@
 import datetime
+
 import jwt
 from django.http import JsonResponse
+from rest_framework import status, serializers
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.response import Response
-from rest_framework import status, serializers
 from rest_framework.views import APIView
 
 from auth_app.models import Usuario

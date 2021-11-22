@@ -4,10 +4,6 @@ from rest_framework.response import Response
 from auth_app.models import Usuario
 from auth_app.serializers import UsuarioSerializer
 
-'''
-    Crear usuarios
-'''
-
 
 class CrearUsuarioView(views.APIView):
     def get(self, request, *args, **kwargs):
@@ -24,7 +20,7 @@ class CrearUsuarioView(views.APIView):
         valid = serializer.is_valid()
         if valid:
             serializer.save()
-            return Response({}, status=status.HTTP_201_CREATED)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
         else:
             return Response({
                 'error': 'mensaje'
@@ -35,3 +31,19 @@ class DetalleUsuarioView(generics.RetrieveUpdateAPIView):
     queryset = Usuario.objects.all()
     serializer_class = UsuarioSerializer
 
+    '''
+        def partial_update(self, request, *args, **kwargs):
+            instance = self.get_object()
+            serializer = self.serializer_class(instance, data={
+                'first_name': 'Juan',
+                'last_name': 'fasdf'
+            })
+            for user in self.queryset.filter():
+                user.set_password('123')
+                user.save()
+    
+            if serializer.is_valid():
+                serializer.save()
+                return Response(data=serializer.data, status=HTTP_200_OK)
+            return Response(data="wrong parameters", status=HTTP_400_BAD_REQUEST)
+    '''
